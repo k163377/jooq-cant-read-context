@@ -27,6 +27,7 @@ class R2dbcConfiguration : AbstractR2dbcConfiguration() {
         val config = ConnectionPoolConfiguration
             .builder(defaultConnectionFactory)
             .postAllocate { _ ->
+                // Set up connections using values read from the Reactor Context
                 val valueMono: Mono<String> = readValue()
 
                 valueMono
