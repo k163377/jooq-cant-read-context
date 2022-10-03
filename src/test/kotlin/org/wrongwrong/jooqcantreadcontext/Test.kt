@@ -28,7 +28,7 @@ class Test @Autowired constructor(private val cfi: ConnectionFactory) {
                 .flatMap { it.selectFrom(FOO_TABLE).toMono() }
         }
             .contextWrite { it.put(KEY, "bar") }
-            .block()
+            .block() // -> success! bar
     }
 
     @Test
@@ -39,6 +39,6 @@ class Test @Autowired constructor(private val cfi: ConnectionFactory) {
             create.selectFrom(FOO_TABLE).toMono()
         }
             .contextWrite { it.put(KEY, "baz") }
-            .block()
+            .block() // -> fail!
     }
 }
