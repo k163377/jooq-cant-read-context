@@ -33,6 +33,8 @@ dependencies {
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 
     implementation("com.h2database:h2")
+    implementation("io.r2dbc:r2dbc-spi")
+    implementation("io.r2dbc:r2dbc-h2")
 
     // for override dependency management plugin
     implementation("org.jooq:jooq:3.17.4")
